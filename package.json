@@ -1,7 +1,14 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "publish": "npm run build && lerna publish",
+    "build": "lerna run build"
+  },
   "devDependencies": {
     "lerna": "^3.20.2"
+  },
+  "dependencies": {
+    "glob": "^7.1.6"
   }
 }
