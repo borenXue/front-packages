@@ -22,7 +22,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"no test case ~_~\""
   },
   "devDependencies": {
     "ts-node": "^8.6.2",

@@ -18,7 +18,8 @@
   },
   "scripts": {
     "build": "rm -rf lib && tsc && cp -R src/webpack/multi-html/html/index.html lib/webpack/multi-html/html/",
-    "test": "rm -f __tests__/manual-test/localdata-*.json && ts-node __tests__/manual-test/webpack-multi-html.ts"
+    "test:local": "rm -f __tests__/manual-test/localdata-*.json && ts-node __tests__/manual-test/webpack-multi-html.ts",
+    "test": "echo \"no test case ~_~\""
   },
   "devDependencies": {
     "@types/html-webpack-plugin": "^3.2.2",
