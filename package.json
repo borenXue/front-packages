@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "publish": "npm run build && lerna publish",
+    "publish": "lerna run test && npm run build && lerna publish",
     "build": "lerna run build"
   },
   "devDependencies": {

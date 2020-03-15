@@ -7,15 +7,24 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "xtools.js",
+      "program": "${workspaceFolder}/packages/xtools.js/a.js",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "npm-debug",
       "preLaunchTask": "npm: build",
-      "program": "${workspaceFolder}/packages/webpack-plugin-multi-html/lib/__tests__/local-test/index.js",
+      "program": "${workspaceFolder}/packages/xtools.js/lib/tree/tree-map.spec.js",
       "cwd": "${workspaceFolder}",
       "smartStep": true,
       "internalConsoleOptions": "openOnSessionStart",
       "outFiles": [
-        "${workspaceFolder}/packages/webpack-plugin-multi-html/lib/__tests__/local-test/index.js",
-        "${workspaceFolder}packages/webpack-plugin-multi-html/lib/src/files-filter.js"
+        "${workspaceFolder}/packages/xtools.js/lib/tree/tree-map.spec.js",
+        "${workspaceFolder}/packages/xtools.js/lib/tree/tree-map.js"
       ],
       // "protocol": "inspector"
     }
