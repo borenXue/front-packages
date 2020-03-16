@@ -7,9 +7,9 @@
     "html",
     "multi"
   ],
-  "author": "xueboren <xueboren002@gmail.com>",
+  "author": "xueboren <boren.xue@outlook.com>",
   "homepage": "",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib"
@@ -17,6 +17,13 @@
   "files": [
     "lib"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borenXue/front-packages.git"
+  },
+  "bugs": {
+    "url": "https://github.com/borenXue/front-packages/issues"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
