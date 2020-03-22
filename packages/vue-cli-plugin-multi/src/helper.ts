@@ -39,7 +39,7 @@ export interface MultiHtmlOptions {
    * 额外的 html 配置项, 用于设置 TODO:
    */
   htmlExtra: {
-    public?: object
+    __public?: object
     [key: string]: object | undefined
   }
 }

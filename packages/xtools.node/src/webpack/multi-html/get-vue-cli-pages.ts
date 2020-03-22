@@ -42,7 +42,7 @@ interface VueCliPages {
   }
 }
 
-export default function(
+export default function getVueCliPages(
   context: string,
   pagesDirList: string[],
   suffix: string[],

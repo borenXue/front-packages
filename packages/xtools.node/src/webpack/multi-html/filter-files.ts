@@ -3,7 +3,7 @@ import path from 'path'
 import glob, { IOptions } from 'glob'
 import { filterResult } from './types'
 
-export default function (
+export default function filterFiles (
   context: string,
   pagesDirList: string[],
   suffix: string[],
@@ -20,7 +20,7 @@ export default function (
     const str = `${pagesDir}/**/*.@(${suffix.join('|')})`
     for (const item of glob.sync(str, globOptions)) {
       // 过滤非 index.xx 与 abc/abc.xx 的文件
-      if (!isValidEntry(item, suffix)) continue
+      if (!isValidEntry(item, suffix, pagesDir)) continue
 
       const entryKeyJS = item.replace(new RegExp(`${pagesDir}`), '')
         .replace(/^\//, '')
@@ -57,7 +57,9 @@ export default function (
   return files
 }
 
-function isValidEntry(file: string, suffix: string[]) {
+function isValidEntry(file: string, suffix: string[], pagesDir: string) {
+  // 防止 src/pages/pages.js 的情况
+  file = file.replace(new RegExp(`^${pagesDir}`), '').replace(/^\//, '')
   const fileName = path.basename(file).replace(new RegExp(`${path.extname(file)}$`), '')
   const dirName = getFileDir(file)
   if (fileName === 'index' || fileName === dirName) return true
@@ -101,9 +103,14 @@ function getHtmlTemplate(context: string, file: string, baseTemplate: string): s
 function getHtmlFilename(entryKey: string): string {
   const fileName = path.basename(entryKey)
   const dirName = getFileDir(entryKey)
+  const allDirName = path.dirname(entryKey)
 
-  if (fileName === 'index') return `${dirName}/index.html`
-  if (fileName === dirName) return `${fileName}.html`
+  if (allDirName === '.' && fileName === 'index') {
+    return 'index.html'
+  }
+
+  if (fileName === 'index') return `${allDirName}/index.html`
+  if (fileName === dirName) return `${allDirName}.html`
 
   // 不符合规则直接返回空字符串
   return ''
