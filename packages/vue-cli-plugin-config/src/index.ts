@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-export default function VueCliPluginConfig(api: any, projectOptions: any) {
+module.exports = function VueCliPluginConfig(api: any, projectOptions: any) {
   if (!process.env.X_ENV) process.env.X_ENV = 'development';
 
   const context = api.getCwd();
