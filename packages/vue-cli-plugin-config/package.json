@@ -1,0 +1,35 @@
+{
+  "name": "vue-cli-plugin-config",
+  "version": "0.1.2",
+  "description": "vue-cli config plugin",
+  "author": "xueboren <xueboren002@gmail.com>",
+  "homepage": "https://github.com/borenXue/front-packages/tree/master/packages/vue-cli-plugin-config",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borenXue/front-packages.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"no test case ~_~\""
+  },
+  "bugs": {
+    "url": "https://github.com/borenXue/front-packages/issues"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/node": "^13.11.0"
+  }
+}
