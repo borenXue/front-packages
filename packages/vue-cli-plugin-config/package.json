@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-config",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "vue-cli config plugin",
   "author": "xueboren <xueboren002@gmail.com>",
   "homepage": "https://github.com/borenXue/front-packages/tree/master/packages/vue-cli-plugin-config",
@@ -29,6 +29,5 @@
   "devDependencies": {
     "@types/node": "^13.11.1",
     "typescript": "^3.8.3"
-  },
-  "dependencies": {}
+  }
 }
