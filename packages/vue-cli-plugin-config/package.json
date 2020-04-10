@@ -27,9 +27,8 @@
     "url": "https://github.com/borenXue/front-packages/issues"
   },
   "devDependencies": {
+    "@types/node": "^13.11.1",
     "typescript": "^3.8.3"
   },
-  "dependencies": {
-    "@types/node": "^13.11.0"
-  }
+  "dependencies": {}
 }
