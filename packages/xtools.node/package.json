@@ -25,6 +25,7 @@
   },
   "scripts": {
     "build": "rm -rf lib && tsc && cp -R src/webpack/multi-html/html/index.html lib/webpack/multi-html/html/",
+    "postbuild": "echo '{}' > lib/webpack/multi-html/html/data-files.json",
     "test:local": "rm -f __tests__/manual-test/localdata-*.json && ts-node __tests__/manual-test/webpack-multi-html.ts",
     "test": "ts-mocha src/**/*.spec.ts -R spec --bail && git checkout src/webpack/multi-html/html/data-files.json"
   },
