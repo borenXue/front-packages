@@ -5,4 +5,5 @@ export {
   getPlugins as webpackGetPlugins,
   getPluginsOptions as webpackGetPluginsOptions,
   getVueCliPages as webpackGetVueCliPages,
+  webpackMultiHtml,
 } from './webpack/multi-html/index'
