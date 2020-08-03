@@ -47,7 +47,7 @@ vue-cli 多环境配置动态加载插件
 <br/>
 
 
->### xtools.node 之 webpackMultiHtml
+>### [xtools.node 之 webpackMultiHtml](packages/xtools.node/)
 
 webpack 多页面配置工具, 3行代码即可支持多页面
 
