@@ -1,5 +1,17 @@
 # vue-cli-plugin-config
 
+## 快速使用
+
+```shell
+
+# 添加该插件 并 初始化 config 目录及 npm script 命令
+
+vue add config
+
+```
+
+## 实现细节
+
 * 读取 `config/${process.env.X_ENV || 'development'}.env.js` 文件
   * 该文件导出普通的 js 对象即可, 不需要特别处理 string 类型, eg: `module.exports = { BASE_API: '//api.baidu.com' }`
 * 使用 `webpack.DefinePlugin` 将导出的配置挂载到变量 `process.env`
