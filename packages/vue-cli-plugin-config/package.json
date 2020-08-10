@@ -10,7 +10,10 @@
     "lib": "lib"
   },
   "files": [
-    "lib"
+    "lib",
+    "template",
+    "generator.js",
+    "generator.d.ts"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -20,7 +23,7 @@
     "url": "git+https://github.com/borenXue/front-packages.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf lib && rm -f generator.js && rm -f generator.d.ts && tsc && mv lib/generator* ./",
     "test": "echo \"no test case ~_~\""
   },
   "bugs": {

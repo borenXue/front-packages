@@ -2,6 +2,7 @@
 lib/
 ignore-dir/
 localdata-*
+packages/vue-cli-plugin-config/generator.*
 
 # Created by https://www.gitignore.io/api/node,macos,windows,webstorm,sublimetext,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=node,macos,windows,webstorm,sublimetext,visualstudiocode
