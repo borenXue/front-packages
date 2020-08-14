@@ -3,7 +3,6 @@
 ## 快速使用
 
 ```shell
-
 # 添加该插件 并 初始化 config 目录及 npm script 命令
 
 vue add config
