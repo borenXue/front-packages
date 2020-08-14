@@ -1,0 +1,92 @@
+pipeline {
+  agent any
+  options {
+      disableConcurrentBuilds()
+      timeout(time: 30, unit: 'MINUTES')
+      timestamps()
+  }
+  tools { nodejs 'Node 12 LTS' }
+  environment {
+    GIT_PROJECT_NAME = '<%= gitlabProjectName %>'
+    TEST_ENV_DEPLOY_NAME = '<%= gitlabProjectName %>-test-ci'
+  }
+  stages {
+    stage('Preparation') {
+      steps {
+        sh 'npm i'
+      }
+    }
+    stage('Build') {
+      steps {
+        script {
+            echo "current branch: $BRANCH_NAME"
+            try {
+              if (BRANCH_NAME.equals("master")) {
+                sh 'npm run build:online'
+              } else {
+                sh 'npm run build:test'
+              }
+            } catch(err){
+              throw err
+            }
+        }
+      }
+    }
+    <%_ if (enableSonarQubeAnalysis) { _%>
+    stage('SonarQube Analysis') {
+      steps {
+          script {
+            echo "current branch: $BRANCH_NAME"
+            try {
+              def scannerHome = tool 'sonar1';
+              withSonarQubeEnv('sonar1') {
+                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${GIT_PROJECT_NAME} -Dsonar.sources=src -Dsonar.projectName=${GIT_PROJECT_NAME} -Dsonar.language=js -Dsonar.sourceEncoding=UTF-8 -Dsonar.branch.name=${BRANCH_NAME}"
+              }
+            } catch(err){
+              throw err
+            }
+        }
+      }
+    }
+    <%_ } _%>
+    stage('Deploy') {
+      steps {
+        script {
+          echo "current branch: $BRANCH_NAME"
+          if (BRANCH_NAME.equals("develop")) {
+              sshPublisher(
+                  continueOnError: false, failOnError: true,
+                  publishers: [
+                      sshPublisherDesc(
+                          configName: "wbtest1",
+                          verbose: true,
+                          transfers: [
+                              sshTransfer(
+                                  sourceFiles: "dist/**/*",
+                                  removePrefix: "dist",
+                                  remoteDirectory: "/${TEST_ENV_DEPLOY_NAME}/$BUILD_NUMBER/dist",
+                                  execCommand: "cp -R warBackup/${TEST_ENV_DEPLOY_NAME}/$BUILD_NUMBER/dist/*  <%= directoryForNginx %>"
+                              )
+                          ])
+              ])
+          } else if (BRANCH_NAME.equals("master")) {
+              sh "sh ci2svn.sh"
+          }
+        }
+      }
+    }
+  }
+  post {
+    failure {
+        emailext(
+            subject: "Jenkins build is ${currentBuild.result}: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            mimeType: "text/html",
+            body: """<p>Jenkins build is ${currentBuild.result}: ${env.JOB_NAME} #${env.BUILD_NUMBER}:</p>
+                      <p>Check console output at <a href="${env.BUILD_URL}console">${env.JOB_NAME} #${env.BUILD_NUMBER}</a></p>""",
+            recipientProviders: [[$class: 'CulpritsRecipientProvider'],
+                                  [$class: 'DevelopersRecipientProvider'],
+                                  [$class: 'RequesterRecipientProvider']]
+        )
+    }
+  }
+}

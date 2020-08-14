@@ -1,0 +1,36 @@
+{
+  "name": "vue-cli-plugin-wyadmin",
+  "version": "0.0.1",
+  "description": "vue-cli fro weiyi admin-management projects",
+  "author": "xueboren <xueboren001@gmail.com>",
+  "homepage": "https://github.com/borenXue/front-packages/tree/master/weiyi/vue-cli-plugin-wyadmin#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "src",
+    "generator",
+    "helper.js",
+    "prompts.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borenXue/front-packages.git"
+  },
+  "scripts": {
+    "build": "echo \"no build required ~_~\"",
+    "test": "echo \"no test case ~_~\""
+  },
+  "bugs": {
+    "url": "https://github.com/borenXue/front-packages/issues"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "npm-run-all": "^4.1.5",
+    "stylelint-webpack-plugin": "^2.1.0",
+    "webpack-alioss-plugin": "^2.4.0"
+  }
+}
