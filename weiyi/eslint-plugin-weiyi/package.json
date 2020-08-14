@@ -1,0 +1,53 @@
+{
+  "name": "eslint-plugin-weiyi",
+  "version": "1.5.3",
+  "description": "eslint plugin for weiyi admin-management projects",
+  "author": "xueboren <xueboren001@gmail.com>",
+  "homepage": "https://github.com/borenXue/front-packages/tree/master/weiyi/eslint-plugin-weiyi#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borenXue/front-packages.git"
+  },
+  "scripts": {
+    "build": "echo \"no build required ~_~\"",
+    "test-todo": "mocha tests --recursive > log_test.txt",
+    "test": "echo \"no test case ~_~\""
+  },
+  "bugs": {
+    "url": "https://github.com/borenXue/front-packages/issues"
+  },
+  "peerDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^6.2.2"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "lodash": "^4.17.20",
+    "requireindex": "^1.2.0",
+    "url-parse": "^1.4.7",
+    "url-regex": "^5.0.0"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "eslint": "^7.6.0",
+    "mocha": "^8.1.1",
+    "vue-eslint-parser": "^7.1.0"
+  }
+}

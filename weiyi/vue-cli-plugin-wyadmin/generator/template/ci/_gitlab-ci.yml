@@ -1,0 +1,18 @@
+trigger_build_develop:
+  stage: deploy
+  only:
+    - develop
+  tags:
+    - curl
+  script:
+    - curl https://jenkins.winbaoxian.cn/jenkins/git/notifyCommit?url=git@git.winbaoxian.com:<%= gitlabProjectGroup %>/<%= gitlabProjectNameWithoutWb %>.git&branches=develop
+    - npm -v
+trigger_build_product:
+  stage: deploy
+  only:
+    - master
+  tags:
+    - curl
+  script:
+    - curl https://jenkins.winbaoxian.cn/jenkins/git/notifyCommit?url=git@git.winbaoxian.com:<%= gitlabProjectGroup %>/<%= gitlabProjectNameWithoutWb %>.git&branches=master
+    - npm -v

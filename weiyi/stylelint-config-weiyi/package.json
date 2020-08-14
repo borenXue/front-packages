@@ -1,0 +1,28 @@
+{
+  "name": "stylelint-config-weiyi",
+  "version": "0.0.1",
+  "description": "stylelint config for weiyi admin-management projects",
+  "author": "xueboren <xueboren001@gmail.com>",
+  "homepage": "https://github.com/borenXue/front-packages/tree/master/weiyi/stylelint-config-weiyi#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borenXue/front-packages.git"
+  },
+  "scripts": {
+    "build": "echo \"no build required ~_~\"",
+    "test": "echo \"no test case ~_~\""
+  },
+  "bugs": {
+    "url": "https://github.com/borenXue/front-packages/issues"
+  },
+  "dependencies": {
+    "@primer/css": "^15.1.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-primer": "^9.0.0"
+  }
+}
