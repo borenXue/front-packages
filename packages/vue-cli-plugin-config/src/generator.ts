@@ -13,12 +13,12 @@ module.exports = (api: any) => {
   api.extendPackage({
     scripts: {
       serve: 'cross-env X_ENV=development NODE_ENV=development vue-cli-service serve',
-      build: 'cross-env X_ENV=development NODE_ENV=development vue-cli-service build',
+      build: undefined,
       'build:test': 'cross-env X_ENV=test NODE_ENV=production vue-cli-service build',
       'build:online': 'cross-env X_ENV=online NODE_ENV=production vue-cli-service build',
       lint: 'cross-env NODE_ENV=production vue-cli-service lint'
     },
-    dependencies: {
+    devDependencies: {
       'cross-env': '^7.0.2'
     }
   });
