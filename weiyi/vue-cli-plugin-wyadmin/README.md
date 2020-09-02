@@ -13,13 +13,6 @@ vue add wyadmin
 
 <!-- package sort -->
 
-* [ ] npm-script 优化
-  - [ ] npm-script lint:style  (stylecss & prettier 的 lint 与 fix)
-  - [ ] npm-script lint:eslint (eslint & prettier 的 lint 与 fix)
-  - [ ] npm-script lint   (执行所有 lint & fix)  (lint-staged 则不用修改)
-* [ ] 更新机制
-  - [ ] 新增命令 vue-cli-service wyadmin update ci
-  - [ ] 新增命令 vue-cli-service wyadmin update lint (eslint、prettier、stylelint 作为一个整体)
 * [ ] 初版发布
   - [ ] 使用文档编写 (包含编辑器配置)
   - [ ] 自动化脚本 - 修改 `~/.vuerc` preset 配置 (发布 npm && 开放体验 && 收集反馈)
