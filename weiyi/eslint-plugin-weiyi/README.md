@@ -6,7 +6,7 @@
 
 ```shell
 
-# 安装信赖
+# 安装依赖
 npm i -D eslint prettier babel-eslint eslint-plugin-vue eslint-config-prettier eslint-config-standard eslint-plugin-prettier
 
 npm i -D eslint-plugin-weiyi
