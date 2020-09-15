@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "sourceMap": true,
+    "target": "es5",
+    "module": "umd",
+    "lib": ["ES6", "DOM"],
+    "declaration": true,
+    "outDir": "./lib",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "src/**/*",
+  ]
+}
