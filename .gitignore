@@ -3,6 +3,7 @@ lib/
 ignore-dir/
 localdata-*
 packages/vue-cli-plugin-config/generator.*
+packages/markdown-it-plugin-vue-livedemo/__test__/demo*.html
 
 # Created by https://www.gitignore.io/api/node,macos,windows,webstorm,sublimetext,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=node,macos,windows,webstorm,sublimetext,visualstudiocode
