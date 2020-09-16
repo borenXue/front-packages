@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-plugin-vue-livedemo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "vue livedemo plugin for markdown-it",
   "keywords": [
     "markdown-it",
@@ -55,6 +55,5 @@
     "typescript": "^4.0.2",
     "vue": "^2.6.12",
     "vue-template-compiler": "^2.6.12"
-  },
-  "dependencies": {}
+  }
 }
