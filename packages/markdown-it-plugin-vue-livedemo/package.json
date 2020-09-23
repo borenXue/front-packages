@@ -24,6 +24,7 @@
     "last 2 versions"
   ],
   "scripts": {
+    "prepublish": "echo 'prepublish...'",
     "build": "rm -rf lib && mkdir lib && npm run scss && rollup -c",
     "scss": "ts-node src/scss-to-css.ts",
     "test": "ts-node __test__/index.ts"
