@@ -3,7 +3,7 @@
 ### Vue 过滤器: `filterArray`
 
 ```vue
-<!-- livedemo -->
+<!-- livedemo: {} -->
 
 <template>
   <div class="demo-001">
@@ -43,6 +43,7 @@
 - 又一个
 
 ```vue
+<!-- livedemo: {} -->
 <template>
   <div>{{ currentTag | filterArray(tagList, 'key', 'value') }}</div>
 </template>
