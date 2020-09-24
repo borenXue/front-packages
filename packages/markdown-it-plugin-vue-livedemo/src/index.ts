@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import MarkdownIt from 'markdown-it';
 import Token from 'markdown-it/lib/token';
 import vueToJS from './vue-to-js';
