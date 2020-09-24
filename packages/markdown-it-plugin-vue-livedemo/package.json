@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-plugin-vue-livedemo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "vue livedemo plugin for markdown-it",
   "keywords": [
     "markdown-it",
