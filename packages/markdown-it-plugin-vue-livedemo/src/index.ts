@@ -3,10 +3,7 @@ import path from 'path';
 import MarkdownIt from 'markdown-it';
 import Token from 'markdown-it/lib/token';
 import vueToJS from './vue-to-js';
-import { setupVueLiveDemoItem, actionCopy, actionCodepen, classAdd, classRemove, classHas, actionCodeSandBox, compressForCodeSandBox } from './browser';
 import { LiveDemoExtra } from './types';
-
-const cssText = fs.readFileSync(path.resolve(__dirname, 'index.css'))
 
 /**
  * 1、parse 阶段: 修改 fence 的 token
@@ -57,7 +54,6 @@ export default function vuelivedemo_plugin(md: MarkdownIt, options: MarkdownIt.O
   };
 };
 
-// eslint-disable-next-line max-params
 function  generateHtml(tokens: Token[], idx: number, options: MarkdownIt.Options, env: any, self: any) {
   const token = tokens[idx];
   let vueContent = token.meta.vueLiveDemo.vueContent;
@@ -67,10 +63,8 @@ function  generateHtml(tokens: Token[], idx: number, options: MarkdownIt.Options
   // @ts-ignore
   const allJSCode = getAllJsCode(this.utils.unescapeAll(vueContent), liveDemoId, token.meta.vueLiveDemo);
 
-  // ${initPlugin.toString()};
   return `
     <section class="fence-livedemo-vue ${liveDemoId}">
-      <style> ${cssText} </style>
       <textarea style="width: 0;height: 0;position: absolute;top:-20px;" class="copy-box">${vueContent.toString()}</textarea>
 
       <div class="live-box">
@@ -140,18 +134,9 @@ function getAllJsCode(vueContent: string, liveDemoId: string, liveDemoExtra: Liv
     ${thisComponentJsStr};
 
     (function () {
-      ${setupVueLiveDemoItem.toString()};
-      ${actionCopy.toString()};
-      ${actionCodepen.toString()};
-      ${classAdd.toString()};
-      ${classRemove.toString()};
-      ${classHas.toString()};
-      ${actionCodeSandBox.toString()};
-      ${compressForCodeSandBox.toString()};
-
       var elementLiveDemo = document.querySelector('section.${liveDemoId}');
         if (elementLiveDemo) {
-          setupVueLiveDemoItem(
+          MarkdownItVueLiveDemo.setupVueLiveDemoItem(
             elementLiveDemo,
             '${liveDemoId}',
             window['${liveDemoId}'],

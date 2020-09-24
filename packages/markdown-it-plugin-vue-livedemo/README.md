@@ -16,12 +16,8 @@
 ```html
 <!-- vue 2.x -->
 <script src="//unpkg.com/vue@2.6.12/dist/vue.js"></script>
-<!-- highlight.js -->
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/color-brewer.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
-<!-- lz-string: codesandbox -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
-
+<!-- markdown-it-plugin-vue-livedemo browser sdk -->
+<script src="//unpkg.com/markdown-it-plugin-vue-livedemo/lib/browser-sdk.js"></script>
 ```
 
 > 编译 Markdown 文件
