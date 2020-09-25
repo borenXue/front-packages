@@ -9,7 +9,8 @@ import pkg from '../package.json';
 const md = MarkdownIt();
 md.use(MarkdownItPluginVueLiveDemo);
 
-const content = fs.readFileSync(path.resolve(__dirname, 'demo.md'))
+// const content = fs.readFileSync(path.resolve(__dirname, 'demo.md'))
+const content = fs.readFileSync(path.resolve(__dirname, 'filter.md'))
 
 const result = md.render(content.toString());
 

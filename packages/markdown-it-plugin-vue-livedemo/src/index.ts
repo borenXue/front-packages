@@ -1,7 +1,19 @@
 import MarkdownIt from 'markdown-it';
 import Token from 'markdown-it/lib/token';
 import vueToJS from './vue-to-js';
-import { LiveDemoExtra } from './types';
+import { LiveDemoExtra, VueLiveDemoConfig } from './types';
+
+const defaultConfig: VueLiveDemoConfig = {
+  scroller: undefined
+};
+
+export function createVuelivedemoPlugin(cfg: any = {}) {
+  const cfg2 = Object.assign({}, defaultConfig, cfg || {});
+  return function vuelivedemoPluginInstance(md: MarkdownIt, options: MarkdownIt.Options) {
+    vuelivedemo_plugin(md, options, cfg2);
+  }
+}
+
 
 /**
  * 1、parse 阶段: 修改 fence 的 token
@@ -14,7 +26,7 @@ import { LiveDemoExtra } from './types';
  *        browser.ts 中的所有公共函数
  *        每个组件的专用启动函数
  */
-export default function vuelivedemo_plugin(md: MarkdownIt, options: MarkdownIt.Options) {
+export default function vuelivedemo_plugin(md: MarkdownIt, options: MarkdownIt.Options, config?: VueLiveDemoConfig) {
   // eslint-disable-next-line max-params
   md.block.ruler.after('fence', 'fence_livedemo_vue', (state, startLine, endLine, silent) => {
     if (!state.tokens || state.tokens.length <= 0) return false;
@@ -33,6 +45,7 @@ export default function vuelivedemo_plugin(md: MarkdownIt, options: MarkdownIt.O
 
     const meta = {
       vueLiveDemo: {
+        config,
         vueContent: content,
         template,
         style,
@@ -133,14 +146,12 @@ function getAllJsCode(vueContent: string, liveDemoId: string, liveDemoExtra: Liv
 
     (function () {
       var elementLiveDemo = document.querySelector('section.${liveDemoId}');
-        if (elementLiveDemo) {
-          MarkdownItVueLiveDemo.setupVueLiveDemoItem(
-            elementLiveDemo,
-            '${liveDemoId}',
-            window['${liveDemoId}'],
-            \`${encodeURIComponent(JSON.stringify(liveDemoExtra))}\`
-          );
-        }
+      if (elementLiveDemo) {
+        MarkdownItVueLiveDemo.setupVueLiveDemoItem(
+          elementLiveDemo, '${liveDemoId}', window['${liveDemoId}'],
+          \`${encodeURIComponent(JSON.stringify(liveDemoExtra))}\`
+        );
+      }
     })();
   `
 }

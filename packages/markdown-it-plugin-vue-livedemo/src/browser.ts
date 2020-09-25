@@ -9,7 +9,7 @@ export function compressForCodeSandBox(string: string) {
 
 export function setupVueLiveDemoItem(element: HTMLElement, id: string, vueComponent: any, liveDemoExtraStr: string) {
   if (element.dataset.setup === 'true') return;
-  const liveDemoExtra = liveDemoExtraStr ? JSON.parse(window.decodeURIComponent(liveDemoExtraStr)) : {};
+  const liveDemoExtra: LiveDemoExtra = liveDemoExtraStr ? JSON.parse(window.decodeURIComponent(liveDemoExtraStr)) : {};
 
   element.onmouseover = () => classAdd(element, 'hover');
   element.onmouseenter = () => classAdd(element, 'hover');
@@ -70,7 +70,6 @@ export function setupVueLiveDemoItem(element: HTMLElement, id: string, vueCompon
     };
   }
 
-  // eslint-disable-next-line no-new
   // @ts-ignore
   new window.Vue({
     el: element.querySelector('.live-box-app'),
@@ -86,13 +85,16 @@ export function setupVueLiveDemoItem(element: HTMLElement, id: string, vueCompon
         return;
       }
     }
-    const height = document.documentElement.clientHeight;
-    const width = document.documentElement.clientWidth;
-    const offsetLeft = element.offsetLeft;
-    let s = document.documentElement.scrollTop || document.body.scrollTop;
+
+    let scrollerBox = liveDemoExtra.config.scroller && typeof liveDemoExtra.config.scroller === 'string'
+      ? document.querySelector(liveDemoExtra.config.scroller) || document.documentElement
+      : document.documentElement;
+
+    const documentWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    const height = scrollerBox.clientHeight;
     const controlBarOffsetTop = sourceBoxEle.offsetTop + sourceBoxEle.clientHeight;
 
-    if (controlBarOffsetTop - (height + s) >= controlBarEle.clientHeight) {
+    if (controlBarOffsetTop - (height + scrollerBox.scrollTop) >= controlBarEle.clientHeight) {
       if (!controlBarEle.getAttribute('style')) {
         // eslint-disable-next-line
         controlBarEle.setAttribute(
@@ -102,7 +104,7 @@ export function setupVueLiveDemoItem(element: HTMLElement, id: string, vueCompon
           bottom: 0;
           z-index: 1000;
           left: ${element.offsetLeft + 1}px;
-          right: ${width - element.offsetLeft - element.clientWidth}px;
+          right: ${documentWidth - element.offsetLeft - element.clientWidth}px;
         `,
         );
       }
@@ -141,9 +143,21 @@ export function actionCodepen(liveDemoExtra: LiveDemoExtra) {
   const inputValue = {
     js: jsContent,
     css: styleContent,
-    html: `<script src="//unpkg.com/vue/dist/vue.js">` + '<' + '/' + 'script>'
-      + `<script src="//unpkg.com/element-ui/lib/index.js">` + '<' + '/' + 'script>'
-      + htmlContent,
+    html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document${'</'}title>
+${'</'}head>
+<body>
+  ${htmlContent}
+${'</'}body>
+${'</'}html>
+`,
+    // a: `<script src="//unpkg.com/vue/dist/vue.js">` + '<' + '/' + 'script>'
+    //   + `<script src="//unpkg.com/element-ui/lib/index.js">` + '<' + '/' + 'script>'
+    //   + htmlContent,
   };
 
   const form = document.createElement('form');
@@ -182,16 +196,27 @@ export function actionCodeSandBox(liveDemoExtra: LiveDemoExtra) {
       ` },
       'index.js': { content: `import Vue from 'vue/dist/vue.common.js';
 import ElementUI from 'element-ui';
+import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);
 
 ${(liveDemoExtra.script || '').replace('export default ', 'var Main = ')}
 var Ctor = Vue.extend(Main)
-new Ctor().$mount('#app')` },
-      'index.html': { content: `<link rel="stylesheet" href="//unpkg.com/element-ui/lib/theme-chalk/index.css"></link>
-
-<div id="app">
-  ${liveDemoExtra.template}
-</div>`, },
+new Ctor().$mount('#app')
+` },
+      'index.html': { content: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    ${liveDemoExtra.template}
+  </div>
+</body>
+</html>
+`, },
     }
   };
   const form = document.createElement('form');
