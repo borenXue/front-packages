@@ -1,5 +1,9 @@
+export interface VueLiveDemoConfig {
+  scroller?: '',
+};
 
 export interface LiveDemoExtra {
+  config: VueLiveDemoConfig;
   template?: string;
   style?: string;
   vueContent: string;
