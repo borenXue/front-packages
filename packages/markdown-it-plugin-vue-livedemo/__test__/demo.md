@@ -7,6 +7,7 @@
 
 <template>
   <div class="demo-001">
+    <el-button>el-button 组件示例</el-button>
     <div>currentTag: {{ currentTag }}</div>
     <div class="green">tagList: {{ newTag }}</div>
   </div>
