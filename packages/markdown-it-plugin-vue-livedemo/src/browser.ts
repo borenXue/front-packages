@@ -93,6 +93,7 @@ export function setupVueLiveDemoItem(element: HTMLElement, id: string, vueCompon
     }
 
     const documentWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    const documentHeight = document.documentElement.clientHeight || document.body.clientHeight;
     const height = scrollerBox.clientHeight;
     const controlBarOffsetTop = sourceBoxEle.offsetTop + sourceBoxEle.clientHeight;
 
@@ -105,10 +106,13 @@ export function setupVueLiveDemoItem(element: HTMLElement, id: string, vueCompon
           position: fixed;
           bottom: 0;
           z-index: ${fixedControllerBarZIndex++};
-          left: ${element.offsetLeft + 1}px;
-          right: ${documentWidth - element.offsetLeft - element.clientWidth}px;
+          left: ${element.getBoundingClientRect().x + 1}px;
+          right: ${documentWidth - element.getBoundingClientRect().x - element.clientWidth}px;
         `,
         );
+      }
+      if (controlBarEle.getAttribute('style') && sourceBoxEle.getBoundingClientRect().y + controlBarEle.clientHeight > documentHeight) {
+        controlBarEle.setAttribute('style', '');
       }
     } else {
       controlBarEle.setAttribute('style', '');
@@ -132,35 +136,35 @@ export function actionCodepen(liveDemoExtra: LiveDemoExtra) {
       ${liveDemoExtra.template}
     </div>
   `;
-  const styleContent = `
-    @import url('//unpkg.com/element-ui/lib/theme-chalk/index.css');
-    ${liveDemoExtra.style || ''}
-  `;
+  const styleContent = liveDemoExtra.style || '';
   const jsContent = `
     ${(liveDemoExtra.script || '').replace('export default ', 'var Main = ')}
     var Ctor = Vue.extend(Main)
     new Ctor().$mount('#app')
   `;
-
-  const inputValue = {
+  const originInputValue = {
     js: jsContent,
     css: styleContent,
-    html: `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document${'</'}title>
-${'</'}head>
-<body>
-  ${htmlContent}
-${'</'}body>
-${'</'}html>
-`,
-    // a: `<script src="//unpkg.com/vue/dist/vue.js">` + '<' + '/' + 'script>'
-    //   + `<script src="//unpkg.com/element-ui/lib/index.js">` + '<' + '/' + 'script>'
-    //   + htmlContent,
+    html: `<script src="//unpkg.com/vue/dist/vue.js">${'</'}script>
+<!-- placeholder-code-start -->
+
+
+${htmlContent}
+
+
+<!-- placeholder-code-end -->`,
   };
+
+  let inputValue = undefined;
+  if (
+    liveDemoExtra.config.codepenDataFn
+    && typeof liveDemoExtra.config.codepenDataFn === 'string'
+    && window[liveDemoExtra.config.codepenDataFn]
+    && typeof window[liveDemoExtra.config.codepenDataFn] === 'function'
+  ) {
+    // @ts-ignore
+    inputValue = window[liveDemoExtra.config.codepenDataFn](originInputValue, liveDemoExtra)
+  }
 
   const form = document.createElement('form');
   form.method = 'POST';
@@ -171,7 +175,7 @@ ${'</'}html>
   const input = document.createElement('input');
   input.setAttribute('name', 'data');
   input.setAttribute('type', 'hidden');
-  input.setAttribute('value', JSON.stringify(inputValue));
+  input.setAttribute('value', JSON.stringify(inputValue || originInputValue));
 
   form.appendChild(input);
   document.body.appendChild(form);
@@ -184,23 +188,19 @@ export function actionCodeSandBox(liveDemoExtra: LiveDemoExtra) {
     version: '0.0.1',
     main: 'index.js',
     dependencies: {
-      'element-ui': '2.13.2',
       'vue': '2.6.12'
     },
     devDependencies: {},
     scripts: {},
   };
-  const config = {
+  const originConfig = {
     files: {
       'package.json': { content: pkg },
       'index.css': { content: `
         ${liveDemoExtra.style || ''}
       ` },
       'index.js': { content: `import Vue from 'vue/dist/vue.common.js';
-import ElementUI from 'element-ui';
-import "element-ui/lib/theme-chalk/index.css";
-Vue.use(ElementUI);
-
+// placeholder-after-vue-import
 ${(liveDemoExtra.script || '').replace('export default ', 'var Main = ')}
 var Ctor = Vue.extend(Main)
 new Ctor().$mount('#app')
@@ -221,6 +221,16 @@ new Ctor().$mount('#app')
 `, },
     }
   };
+  let config = undefined;
+  if (
+    liveDemoExtra.config.codeSandBoxDataFn
+    && typeof liveDemoExtra.config.codeSandBoxDataFn === 'string'
+    && window[liveDemoExtra.config.codeSandBoxDataFn]
+    && typeof window[liveDemoExtra.config.codeSandBoxDataFn] === 'function'
+  ) {
+    // @ts-ignore
+    config = window[liveDemoExtra.config.codeSandBoxDataFn](originConfig, liveDemoExtra);
+  }
   const form = document.createElement('form');
   form.method = 'POST';
   form.action = 'https://codesandbox.io/api/v1/sandboxes/define';
@@ -230,7 +240,7 @@ new Ctor().$mount('#app')
   const input = document.createElement('input');
   input.setAttribute('name', 'parameters');
   input.setAttribute('type', 'hidden');
-  input.setAttribute('value', compressForCodeSandBox(JSON.stringify(config)));
+  input.setAttribute('value', compressForCodeSandBox(JSON.stringify(config || originConfig)));
 
   form.appendChild(input);
   document.body.appendChild(form);

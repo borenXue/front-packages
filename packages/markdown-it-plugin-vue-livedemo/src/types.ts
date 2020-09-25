@@ -1,5 +1,7 @@
 export interface VueLiveDemoConfig {
-  scroller?: '',
+  scroller?: '';
+  codepenDataFn?: '',
+  codeSandBoxDataFn?: '',
 };
 
 export interface LiveDemoExtra {
