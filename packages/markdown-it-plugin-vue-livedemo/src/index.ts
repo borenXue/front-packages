@@ -45,7 +45,7 @@ export default function vuelivedemo_plugin(md: MarkdownIt, options: MarkdownIt.O
 
     const meta = {
       vueLiveDemo: {
-        config,
+        config: config || {},
         vueContent: content,
         template,
         style,

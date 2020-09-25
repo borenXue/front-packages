@@ -1,5 +1,7 @@
 import { LiveDemoExtra } from './types';
 
+let fixedControllerBarZIndex = 1000;
+
 export function compressForCodeSandBox(string: string) {
   return window.LZString.compressToBase64(string)
     .replace(/\+/g, '-') // Convert '+' to '-'
@@ -102,7 +104,7 @@ export function setupVueLiveDemoItem(element: HTMLElement, id: string, vueCompon
           `
           position: fixed;
           bottom: 0;
-          z-index: 1000;
+          z-index: ${fixedControllerBarZIndex++};
           left: ${element.offsetLeft + 1}px;
           right: ${documentWidth - element.offsetLeft - element.clientWidth}px;
         `,
