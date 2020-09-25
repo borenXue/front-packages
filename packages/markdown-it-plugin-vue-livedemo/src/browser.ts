@@ -78,8 +78,12 @@ export function setupVueLiveDemoItem(element: HTMLElement, id: string, vueCompon
     render: (h: Function) => h(vueComponent),
   });
 
+  let scrollerBox = liveDemoExtra.config.scroller && typeof liveDemoExtra.config.scroller === 'string'
+      ? document.querySelector(liveDemoExtra.config.scroller) || document.documentElement
+      : document.documentElement;
+
   // 使 controlBarEle 元素固定
-  window.addEventListener('scroll', scrollHandler as any);
+  (scrollerBox === document.documentElement ? window : scrollerBox).addEventListener('scroll', scrollHandler as any);
 
   function scrollHandler(notCheckOpenStatus: boolean) {
     if (notCheckOpenStatus !== true) {
@@ -87,10 +91,6 @@ export function setupVueLiveDemoItem(element: HTMLElement, id: string, vueCompon
         return;
       }
     }
-
-    let scrollerBox = liveDemoExtra.config.scroller && typeof liveDemoExtra.config.scroller === 'string'
-      ? document.querySelector(liveDemoExtra.config.scroller) || document.documentElement
-      : document.documentElement;
 
     const documentWidth = document.documentElement.clientWidth || document.body.clientWidth;
     const height = scrollerBox.clientHeight;
