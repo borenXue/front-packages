@@ -32,6 +32,9 @@
   "bugs": {
     "url": "https://github.com/borenXue/front-packages/issues"
   },
+  "peerDependencies": {
+    "markdown-it": "^11.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
