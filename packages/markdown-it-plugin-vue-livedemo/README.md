@@ -2,16 +2,16 @@
 
 > 仅支持 node 环境运行
 
-* [ ] SDK 配置参数
+* [X] SDK 配置参数
 * [ ] 复制成功后 Toast 提示
-* [ ] 打包出 browser.js: browser.ts、index.scss、lz-string、highlight.js(含css) 共同打包
-* [ ] 发布时自动上传 browser.js 到开源 CDN, 便于用户直接在 HTML 中引用, 减少每次渲染出来的代码体积
+* [X] 打包出 browser.js: browser.ts、index.scss、lz-string、highlight.js(含css) 共同打包
+* [X] 发布时自动上传 browser.js 到开源 CDN, 便于用户直接在 HTML 中引用, 减少每次渲染出来的代码体积
 
 
 ## 使用方法
 
 
-> Html 文件中需要添加基础依赖: vue、lz-string、highlight.js
+> Html 文件中需要添加基础依赖: vue、browser-sdk
 
 ```html
 <!-- vue 2.x -->
