@@ -13,12 +13,12 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
   .demo-001 {
     color: red;
-  }
-  .green {
-    color: green;
+    .green {
+      color: green;
+    }
   }
 </style>
 

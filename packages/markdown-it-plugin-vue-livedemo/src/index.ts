@@ -41,7 +41,7 @@ export default function vuelivedemo_plugin(md: MarkdownIt, options: MarkdownIt.O
     if (!/<!--( )*livedemo/.test(src)) return false;
 
     const { content, extra } = extractMeta(src);
-    const { template, style, script } = splitContent(content);
+    const { template, style, script, styleLang } = splitContent(content);
 
     const meta = {
       vueLiveDemo: {
@@ -49,6 +49,7 @@ export default function vuelivedemo_plugin(md: MarkdownIt, options: MarkdownIt.O
         vueContent: content,
         template,
         style,
+        styleLang,
         script,
         extra,
       },
@@ -160,7 +161,7 @@ function splitContent(str: string) {
   const regexpTemplate = /<template>((.|\n)*?)<\/template>/;
   const regexpStyle = /<style((.|\n)*?)>((.|\n)*?)<\/style>/;
   const regexpScript = /<script((.|\n)*?)>((.|\n)*?)<\/script>/;
-  const res = { template: undefined, style: undefined, script: undefined };
+  const res = { template: undefined, style: undefined, styleLang: undefined, script: undefined };
 
   if (regexpTemplate.test(str)) {
     const temp = regexpTemplate.exec(str);
@@ -169,7 +170,17 @@ function splitContent(str: string) {
 
   if (regexpStyle.test(str)) {
     const temp = regexpStyle.exec(str);
-    if (temp && temp[3]) res.style = temp[3] as any;
+    if (temp) {
+      if (temp[3]) res.style = temp[3] as any;
+      const lang = temp[1] || '';
+      const styleLangRegexp = /lang=['"]((.)*?)['"]/;
+      if (lang && styleLangRegexp.test(lang)) {
+        const tempLang = styleLangRegexp.exec(lang);
+        if (tempLang && tempLang[1]) {
+          res.styleLang = tempLang[1] as any;
+        }
+      }
+    }
   }
 
   if (regexpScript.test(str)) {
