@@ -145,6 +145,7 @@ export function actionCodepen(liveDemoExtra: LiveDemoExtra) {
   const originInputValue = {
     js: jsContent,
     css: styleContent,
+    css_pre_processor: liveDemoExtra.styleLang || 'none',
     html: `<script src="//unpkg.com/vue/dist/vue.js">${'</'}script>
 <!-- placeholder-code-start -->
 
@@ -196,10 +197,11 @@ export function actionCodeSandBox(liveDemoExtra: LiveDemoExtra) {
   const originConfig = {
     files: {
       'package.json': { content: pkg },
-      'index.css': { content: `
+      'index.scss': { content: `
         ${liveDemoExtra.style || ''}
       ` },
       'index.js': { content: `import Vue from 'vue/dist/vue.common.js';
+import "./index.scss";
 // placeholder-after-vue-import
 ${(liveDemoExtra.script || '').replace('export default ', 'var Main = ')}
 var Ctor = Vue.extend(Main)

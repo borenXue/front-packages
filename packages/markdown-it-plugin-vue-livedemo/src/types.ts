@@ -8,6 +8,7 @@ export interface LiveDemoExtra {
   config: VueLiveDemoConfig;
   template?: string;
   style?: string;
+  styleLang?: string;
   vueContent: string;
   script?: string;
   extra?: {
