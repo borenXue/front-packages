@@ -79,3 +79,11 @@ vue create your-project
 vue add wyadmin
 git commit -am "chore(init): vue add wyadmin"
 ```
+
+<!--
+npm i -D vue-loader
+rm -rf node_modules/@vue/cli-service/node_modules/vue-loader
+
+TODO:
+eslint 输出结果美化
+-->
