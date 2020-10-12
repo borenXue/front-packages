@@ -23,6 +23,6 @@
   "dependencies": {
     "@primer/css": "^15.1.0",
     "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-primer": "^9.0.0"
+    "stylelint-config-primer": "^9.2.1"
   }
 }
