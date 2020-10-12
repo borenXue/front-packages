@@ -90,7 +90,7 @@ module.exports = (api, {
         // "eslint-plugin-standard": "^4.0.1",
         // stylelint 相关
         "stylelint": "^13.6.1",
-        "stylelint-config-weiyi": "^0.0.2",
+        "stylelint-config-weiyi": "^0.0.3",
       },
     });
   }
