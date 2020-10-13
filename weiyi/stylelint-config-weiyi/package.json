@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-weiyi",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "stylelint config for weiyi admin-management projects",
   "author": "xueboren <xueboren001@gmail.com>",
   "homepage": "https://github.com/borenXue/front-packages/tree/master/weiyi/stylelint-config-weiyi#readme",
