@@ -16,13 +16,10 @@ module.exports = {
     'selector-no-qualifying-type': null,
 
     'primer/no-override': null,
+    'at-rule-blacklist': null,
+    'declaration-property-value-blacklist': null,
     'selector-max-compound-selectors': 6,
     'max-nesting-depth': 6,
     'primer/no-unused-vars': null,
-    'declaration-property-value-blacklist': {
-      '/^background/': ['http:', 'https:'],
-      '/^border/': ['none'],
-      '/.+/': ['initial'],
-    },
   }
 }
