@@ -15,9 +15,17 @@ module.exports = {
     'selector-max-type': 5,
     'selector-no-qualifying-type': null,
 
-    'primer/no-override': null,
+    // Deprecated && Instead
     'at-rule-blacklist': null,
+    'at-rule-disallowed-list': ['extend'],
     'declaration-property-value-blacklist': null,
+    'declaration-property-value-disallowed-list': {
+      '/^background/': ['http:', 'https:'],
+      '/^border/': ['none'],
+      '/.+/': ['initial'],
+    },
+
+    'primer/no-override': null,
     'selector-max-compound-selectors': 6,
     'max-nesting-depth': 6,
     'primer/no-unused-vars': null,
