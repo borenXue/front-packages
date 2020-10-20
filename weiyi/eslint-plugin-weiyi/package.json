@@ -19,35 +19,37 @@
   "scripts": {
     "build": "echo \"no build required ~_~\"",
     "test-todo": "mocha tests --recursive > log_test.txt",
-    "test": "echo \"no test case ~_~\""
+    "test": "echo \"no test case ~_~\"",
+    "lint": "eslint . --fix"
   },
   "bugs": {
     "url": "https://github.com/borenXue/front-packages/issues"
   },
   "peerDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-vue": "^6.2.2"
+    "eslint": "^7.6.0",
+    "eslint-plugin-vue": "^7.1.0"
   },
   "dependencies": {
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
     "lodash": "^4.17.20",
     "requireindex": "^1.2.0",
     "url-parse": "^1.4.7",
-    "url-regex": "^5.0.0"
+    "url-regex": "^5.0.0",
+    "@vue/eslint-config-airbnb": "^5.1.0",
+    "babel-eslint": "^10.1.0",
+    "eslint-config-prettier": "^6.13.0"
   },
   "devDependencies": {
+    "@vue/cli-service": "^4.5.8",
     "chalk": "^4.1.0",
     "eslint": "^7.6.0",
+    "eslint-plugin-vue": "^7.1.0",
     "mocha": "^8.1.1",
-    "vue-eslint-parser": "^7.1.0"
+    "vue-eslint-parser": "^7.1.1"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "all",
+    "endOfLine": "lf"
   }
 }

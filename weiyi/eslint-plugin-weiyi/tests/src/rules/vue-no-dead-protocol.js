@@ -1,13 +1,12 @@
-
-const rule = require('../../src/rules/vue-no-dead-protocol');
-const RuleTester = require('eslint').RuleTester;
+const rule = require('./vue-no-dead-protocol')
+const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester({
-  parser: 'vue-eslint-parser',
-  parserOptions: { ecmaVersion: 2015 }
-});
+  parser: require.resolve('vue-eslint-parser'),
+  parserOptions: { ecmaVersion: 2015 },
+})
 
-ruleTester.run("weiyi/vue-no-dead-protocol", rule, {
+ruleTester.run('weiyi/vue-no-dead-protocol', rule, {
   valid: [
     // html 属性值
     `
@@ -24,46 +23,46 @@ ruleTester.run("weiyi/vue-no-dead-protocol", rule, {
           <span>//a.b.com/def.gif</span>
         </div>
       </template>
-    `
+    `,
   ],
   invalid: [
-      // html 属性值含 http://
-      {
-        filename: 'test.vue',
-        code: `
+    // html 属性值含 http://
+    {
+      filename: 'test.vue',
+      code: `
           <template>
             <div>
               <img src="http://a.b.com/def.gif">
             </div>
           </template>
         `,
-        output: `
+      output: `
           <template>
             <div>
               <img src="//a.b.com/def.gif">
             </div>
           </template>
         `,
-        errors: [{ messageId: 'deadHttp' }],
-      },
-      // html 元素内容含 https://
-      {
-        filename: 'test.vue',
-        code: `
+      errors: [{ messageId: 'deadHttp' }],
+    },
+    // html 元素内容含 https://
+    {
+      filename: 'test.vue',
+      code: `
           <template>
             <div>
               <span>https://a.b.com/def.gif</span>
             </div>
           </template>
         `,
-        output: `
+      output: `
           <template>
             <div>
               <span>//a.b.com/def.gif</span>
             </div>
           </template>
         `,
-        errors: [{ messageId: 'deadHttps' }],
-      },
-    ],
-});
+      errors: [{ messageId: 'deadHttps' }],
+    },
+  ],
+})
