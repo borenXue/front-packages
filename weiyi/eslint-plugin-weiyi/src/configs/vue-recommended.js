@@ -13,11 +13,5 @@ module.exports = {
   ],
   rules: {
     'import/extensions': ['error', { vue: 'never' }],
-    'weiyi/vue-no-dead-protocol': 'error',
-    'weiyi/vue-no-third-party-res': [
-      'error',
-      ['winbaoxian.(cn|com)'],
-      ['.(gif|png|jpg|jpeg|webp|js|css|json)$'],
-    ],
   },
 }
