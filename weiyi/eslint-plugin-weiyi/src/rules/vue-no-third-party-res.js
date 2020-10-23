@@ -1,31 +1,39 @@
 /**
  * @fileoverview Rule to disallow dead protocol
  * @author weiyi
- * 
+ *
  * TODO: window.location.href = 'http://www.baidu.com'
  */
 
-"use strict";
-
-var _curry = require('lodash/curry');
-var Utils = require('../utils');
+const curry = require('lodash/curry')
+const Utils = require('../utils')
 
 function literalHandler(context, node) {
-  var originText = context.getSourceCode().getText(node);
-  var allowedDomansArr = context.options && context.options[0] && context.options[0] instanceof Array ? context.options[0] : []
-  var resPashArr = context.options && context.options[1] && context.options[1] instanceof Array ? context.options[1] : []
-  var validObj = Utils.thirdPartyResValidLiteral(originText, allowedDomansArr, resPashArr);
-  var valid = validObj.valid,
-    message = validObj.message;
+  const originText = context.getSourceCode().getText(node)
+  const allowedDomansArr =
+    context.options && context.options[0] && context.options[0] instanceof Array
+      ? context.options[0]
+      : []
+  const resPashArr =
+    context.options && context.options[1] && context.options[1] instanceof Array
+      ? context.options[1]
+      : []
+  const validObj = Utils.thirdPartyResValidLiteral(
+    originText,
+    allowedDomansArr,
+    resPashArr,
+  )
+  const { valid } = validObj
+  const { message } = validObj
   if (!valid) {
     context.report({
       node: node.key,
       loc: node.loc,
-      message
-    });
+      message,
+    })
   }
 }
-var literalHandlerCurried = _curry(literalHandler)
+const literalHandlerCurried = curry(literalHandler)
 
 //------------------------------------------------------------------------------
 // Rule Definition
@@ -35,26 +43,29 @@ module.exports = {
   meta: {
     docs: {
       description: "Don't Use third-party res.",
-      category: "Variables",
+      category: 'Variables',
       recommended: true,
-      url: ""
+      url: '',
     },
-    schema: [{
-      type: "array",
-      items: {
-        type: "string"
-      }
-    }, {
-      type: "array",
-      items: {
-        type: "string"
-      }
-    }]
+    schema: [
+      {
+        type: 'array',
+        items: {
+          type: 'string',
+        },
+      },
+      {
+        type: 'array',
+        items: {
+          type: 'string',
+        },
+      },
+    ],
   },
-  create: function(context) {
+  create(context) {
     return Utils.defineTemplateBodyVisitor(context, {
       VLiteral: literalHandlerCurried(context),
       VText: literalHandlerCurried(context),
     })
-  }
+  },
 }

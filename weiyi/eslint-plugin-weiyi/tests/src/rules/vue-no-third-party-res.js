@@ -1,5 +1,5 @@
-const rule = require('../../src/rules/vue-no-third-party-res')
-const RuleTester = require('eslint').RuleTester
+const { RuleTester } = require('eslint')
+const rule = require('../../../src/rules/vue-no-third-party-res')
 
 const ruleTester = new RuleTester({
   parser: require.resolve('vue-eslint-parser'),
@@ -9,29 +9,33 @@ const ruleTester = new RuleTester({
  * 生成 valid 集合
  */
 const valid = []
-const Utils = require('../util')
-for (const protocol of Utils.thirdParty.protocols) {
-  for (const domain of Utils.thirdParty.domains) {
-    for (const ext of Utils.thirdParty.exts) {
-      for (const endstr of Utils.thirdParty.endstrs) {
+const {
+  thirdParty: { protocols, domains, exts, endstrs, file } = {},
+} = require('../util')
+
+protocols.forEach(protocol => {
+  domains.forEach(domain => {
+    exts.forEach(ext => {
+      endstrs.forEach(endstr => {
         valid.push(`
           <template>
             <div>
-              <span>${protocol}${domain}${Utils.thirdParty.file}${ext}${endstr}</span>
+              <span>${protocol}${domain}${file}${ext}${endstr}</span>
             </div>
           </template>
         `)
         valid.push(`
           <template>
             <div>
-              <img src="${protocol}${domain}${Utils.thirdParty.file}${ext}${endstr}">
+              <img src="${protocol}${domain}${file}${ext}${endstr}">
             </div>
           </template>
         `)
-      }
-    }
-  }
-}
+      })
+    })
+  })
+})
+
 valid.push(`
   <template>
     <div>
@@ -57,7 +61,7 @@ const invalidUrls = [
   '//wpimg.winbaoxian.org/f778738c-e4f8-4870-b634-56703b4acafe.png?afefg',
   'https://wpimg.winbaoxian.org/f778738c-e4f8-4870-b634-56703b4acafe.png#defg',
 ]
-for (const invalidUrl of invalidUrls) {
+invalidUrls.forEach(invalidUrl => {
   invalid.push({
     filename: 'test.vue',
     code: `
@@ -88,7 +92,7 @@ for (const invalidUrl of invalidUrls) {
       },
     ],
   })
-}
+})
 
 ruleTester.run('weiyi/vue-no-third-party-res', rule, {
   valid,
