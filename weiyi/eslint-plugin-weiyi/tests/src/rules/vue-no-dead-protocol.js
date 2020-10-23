@@ -1,5 +1,5 @@
-const rule = require('./vue-no-dead-protocol')
-const RuleTester = require('eslint').RuleTester
+const { RuleTester } = require('eslint')
+const rule = require('../../../src/rules/vue-no-dead-protocol')
 
 const ruleTester = new RuleTester({
   parser: require.resolve('vue-eslint-parser'),
