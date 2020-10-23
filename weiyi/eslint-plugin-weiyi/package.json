@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-weiyi",
-  "version": "1.5.5",
+  "version": "1.6.0",
   "description": "eslint plugin for weiyi admin-management projects",
   "author": "xueboren <xueboren001@gmail.com>",
   "homepage": "https://github.com/borenXue/front-packages/tree/master/weiyi/eslint-plugin-weiyi#readme",
@@ -30,13 +30,13 @@
     "eslint-plugin-vue": "^7.1.0"
   },
   "dependencies": {
+    "@vue/eslint-config-airbnb": "^5.1.0",
+    "babel-eslint": "^10.1.0",
+    "eslint-config-prettier": "^6.13.0",
     "lodash": "^4.17.20",
     "requireindex": "^1.2.0",
     "url-parse": "^1.4.7",
-    "url-regex": "^5.0.0",
-    "@vue/eslint-config-airbnb": "^5.1.0",
-    "babel-eslint": "^10.1.0",
-    "eslint-config-prettier": "^6.13.0"
+    "url-regex": "^5.0.0"
   },
   "devDependencies": {
     "@vue/cli-service": "^4.5.8",
