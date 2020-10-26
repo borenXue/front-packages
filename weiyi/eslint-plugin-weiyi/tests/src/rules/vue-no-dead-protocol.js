@@ -46,23 +46,23 @@ ruleTester.run('weiyi/vue-no-dead-protocol', rule, {
       errors: [{ messageId: 'deadHttp' }],
     },
     // html 元素内容含 https://
-    {
-      filename: 'test.vue',
-      code: `
-          <template>
-            <div>
-              <span>https://a.b.com/def.gif</span>
-            </div>
-          </template>
-        `,
-      output: `
-          <template>
-            <div>
-              <span>//a.b.com/def.gif</span>
-            </div>
-          </template>
-        `,
-      errors: [{ messageId: 'deadHttps' }],
-    },
+    // {
+    //   filename: 'test.vue',
+    //   code: `
+    //       <template>
+    //         <div>
+    //           <span>https://a.b.com/def.gif</span>
+    //         </div>
+    //       </template>
+    //     `,
+    //   output: `
+    //       <template>
+    //         <div>
+    //           <span>//a.b.com/def.gif</span>
+    //         </div>
+    //       </template>
+    //     `,
+    //   errors: [{ messageId: 'deadHttps' }],
+    // },
   ],
 })
