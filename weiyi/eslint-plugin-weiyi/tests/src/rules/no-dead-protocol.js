@@ -18,11 +18,11 @@ ruleTester.run('weiyi/no-dead-protocol', rule, {
       errors: [{ messageId: 'deadHttp', type: 'TemplateLiteral' }],
       output: 'var url = `//www.baidu.com`;',
     },
-    {
-      code: 'var url = `https://www.baidu.com`;',
-      errors: [{ messageId: 'deadHttps', type: 'TemplateLiteral' }],
-      output: 'var url = `//www.baidu.com`;',
-    },
+    // {
+    //   code: 'var url = `https://www.baidu.com`;',
+    //   errors: [{ messageId: 'deadHttps', type: 'TemplateLiteral' }],
+    //   output: 'var url = `//www.baidu.com`;',
+    // },
     /**
      * es5 赋值:
      *      单引号、双引号、http、https
@@ -33,12 +33,12 @@ ruleTester.run('weiyi/no-dead-protocol', rule, {
       output: "var url = '//www.baidu.com';",
       errors: [{ messageId: 'deadHttp', type: 'Literal' }],
     },
-    {
-      // https
-      code: "var url = 'https://www.baidu.com';",
-      output: "var url = '//www.baidu.com';",
-      errors: [{ messageId: 'deadHttps', type: 'Literal' }],
-    },
+    // {
+    //   // https
+    //   code: "var url = 'https://www.baidu.com';",
+    //   output: "var url = '//www.baidu.com';",
+    //   errors: [{ messageId: 'deadHttps', type: 'Literal' }],
+    // },
     {
       // 双引号
       code: 'var url = "http://www.baidu.com";',

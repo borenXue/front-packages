@@ -22,10 +22,10 @@ module.exports.deadProtocolValidAndFixLiteral = function deadProtocolValidAndFix
     obj.valid = false
     obj.messageId = 'deadHttp'
     obj.fixStr = str.replace(/http:\/\//g, '//')
-  } else if (str.indexOf('https://') >= 0) {
-    obj.valid = false
-    obj.messageId = 'deadHttps'
-    obj.fixStr = str.replace(/https:\/\//g, '//')
+    // } else if (str.indexOf('https://') >= 0) {
+    //   obj.valid = false
+    //   obj.messageId = 'deadHttps'
+    //   obj.fixStr = str.replace(/https:\/\//g, '//')
   } else {
     obj.valid = true
   }
