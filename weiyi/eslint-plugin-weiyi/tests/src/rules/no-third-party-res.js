@@ -21,12 +21,14 @@ protocols.forEach(protocol => {
     })
   })
 })
-valid.push(
-  "var a = '//wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.html';",
-)
-valid.push(
-  "var a = '//wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe';",
-)
+valid.push({
+  code: "var a = '//wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.html';",
+  options: [['winbaoxian\\.(cn|com)'], ['\\.(gif|png|jpg|jpeg|webp|js|css|json)$']],
+})
+valid.push({
+  code: "var a = '//wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe';",
+  options: [['winbaoxian\\.(cn|com)'], ['\\.(gif|png|jpg|jpeg|webp|js|css|json)$']],
+})
 
 /**
  * invalid
@@ -41,6 +43,7 @@ const invalidUrls = [
 invalidUrls.forEach(invalidUrl => {
   invalid.push({
     code: `var a = '${invalidUrl}';`,
+    options: [['winbaoxian\\.(cn|com)'], ['\\.(gif|png|jpg|jpeg|webp|js|css|json)$']],
     errors: [
       {
         message: `invalid resource file: ${invalidUrl}`,
@@ -51,6 +54,7 @@ invalidUrls.forEach(invalidUrl => {
   // es6
   invalid.push({
     code: `var a = \`${invalidUrl}\`;`,
+    options: [['winbaoxian\\.(cn|com)'], ['\\.(gif|png|jpg|jpeg|webp|js|css|json)$']],
     errors: [
       {
         message: `invalid resource file: ${invalidUrl}`,
