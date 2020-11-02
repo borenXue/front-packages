@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-weiyi",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "eslint plugin for weiyi admin-management projects",
   "author": "xueboren <xueboren001@gmail.com>",
   "homepage": "https://github.com/borenXue/front-packages/tree/master/weiyi/eslint-plugin-weiyi#readme",
