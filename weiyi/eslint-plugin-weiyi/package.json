@@ -18,8 +18,8 @@
   },
   "scripts": {
     "build": "echo \"no build required ~_~\"",
-    "test-todo": "mocha tests --recursive > log_test.txt",
-    "test": "echo \"no test case ~_~\"",
+    "test:local": "mocha tests --recursive > temp/log_test.txt",
+    "test": "mocha tests --recursive",
     "lint": "eslint . --fix"
   },
   "bugs": {

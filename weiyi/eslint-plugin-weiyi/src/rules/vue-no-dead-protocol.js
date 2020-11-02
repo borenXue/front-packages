@@ -17,7 +17,7 @@ function literalHandler(context, node) {
     context.report({
       node: node.key,
       loc: node.loc,
-      message: Utils.deadProtocolMessages[messageId],
+      messageId,
       fix(fixer) {
         return fixer.replaceText(node, fixStr)
       },
