@@ -1,6 +1,6 @@
 {
   "name": "xtools.vue",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "vue helper && components",
   "author": "xueboren <xueboren002@gmail.com>",
   "homepage": "https://github.com/borenXue/front-packages/tree/master/packages/xtools.vue",
@@ -25,7 +25,7 @@
     "url": "https://github.com/borenXue/front-packages/issues"
   },
   "dependencies": {
-    "xtools_js": "^1.4.9"
+    "xtools_js": "^1.4.10"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
