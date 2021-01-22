@@ -6,4 +6,7 @@ export {
   getPluginsOptions as webpackGetPluginsOptions,
   getVueCliPages as webpackGetVueCliPages,
   webpackMultiHtml,
+
+  filterFilesV2,
+  webpackMultiHtmlV2,
 } from './webpack/multi-html/index'
