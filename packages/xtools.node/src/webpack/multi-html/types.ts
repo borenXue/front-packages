@@ -54,6 +54,7 @@ export interface filterResultItemValue {
    * eg: src/pages/strategy-category/index.js
    */
   originFile: string,
+  originFileAbsolute?: string,
   /**
    * 最终配置到 webpack 中的入口文件 entry key
    * 
@@ -70,4 +71,56 @@ export interface filterResultItemValue {
    * 对应 html-webpack-plugin 插件的 filename 参数
    */
   htmlFilename: string,
+}
+
+
+
+
+
+
+
+
+
+
+export interface filterFilesV2OptionEntry {
+  /**
+   * 用来匹配的 glob pattern 字符串
+   */
+  globPattern: string;
+  globIgnore?: string;
+  /**
+   * 文件相对路径作为 entry key 时, 需要删除掉的 globPattern 中的前缀部分
+   */
+  entryRemovedPrefix?: string;
+  /**
+   * 文件相对路径作为 entry key 时, 需要添加的额外前缀
+   */
+  entryPrefix?: string;
+}
+
+export interface MultiHtmlOptionsV2 {
+  // 默认值: [
+  //    { globPattern: 'src/pages/**/*.js', entryRemovedPrefix: 'src/pages/' },
+  //    { globPattern: 'src/pages/**/*.ts', entryRemovedPrefix: 'src/pages/' }
+  // ]
+  entries?: string | filterFilesV2OptionEntry | (string | filterFilesV2OptionEntry)[],
+
+  /**
+   * 默认的 html 模板文件路径, 字符串格式
+   *
+   * default: 'public/index.html'
+   */
+  baseTemplate?: string
+
+  context?: string
+
+  debug?: string | boolean;
+
+  /**
+   * 额外的 html 配置项
+   */
+  htmlExtra: {
+    __public?: object
+    [key: string]: object | undefined
+  }
 }

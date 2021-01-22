@@ -1,4 +1,4 @@
-import { MultiHtmlOptions, filterResultItemValue } from "./types"
+import { MultiHtmlOptions, filterResultItemValue, MultiHtmlOptionsV2 } from "./types"
 
 export function throwError(info: string) {
   throw new Error(`[WebpackPluginMultiHtml]\t${info}`)
@@ -89,4 +89,24 @@ function isValidAdditionalEntries(arr: any) {
 
   }
   return false
+}
+
+
+
+
+
+
+
+
+
+
+export const defaultOptionsV2: MultiHtmlOptionsV2 = {
+  entries: [
+    { globPattern: 'src/pages/**/*.js', entryRemovedPrefix: 'src/pages/' },
+    { globPattern: 'src/pages/**/*.ts', entryRemovedPrefix: 'src/pages/', globIgnore: '**/*.d.ts' },
+  ],
+  context: process.cwd(),
+  debug: false,
+  baseTemplate: 'public/index.html',
+  htmlExtra: {},
 }
