@@ -34,7 +34,7 @@ export function getPlugins(files: filterResult, htmlExtra: typeof defaultOptions
   return getPluginsOptions(files, htmlExtra).map(item => new HtmlWebpackPlugin(item))
 }
 
-export function getPluginsOptions(files: filterResult, htmlExtra: typeof defaultOptions.htmlExtra): Options[] {
+export function getPluginsOptions(files: filterResult, htmlExtra?: typeof defaultOptions.htmlExtra): Options[] {
   const entries: entriesType = {}
   const options: Options[] = []
 

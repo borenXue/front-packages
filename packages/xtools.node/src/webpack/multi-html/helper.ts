@@ -4,11 +4,12 @@ export function throwError(info: string) {
   throw new Error(`[WebpackPluginMultiHtml]\t${info}`)
 }
 
-export function execHtmlPluginParams(fileItem: filterResultItemValue, htmlExtra: typeof defaultOptions.htmlExtra): object {
-  const result = JSON.parse(JSON.stringify(htmlExtra.__public || {}))
-  for (const key in htmlExtra) {
+export function execHtmlPluginParams(fileItem: filterResultItemValue, htmlExtra?: typeof defaultOptions.htmlExtra): object {
+  const finalHtmlExtra = htmlExtra || {}
+  const result = JSON.parse(JSON.stringify(finalHtmlExtra.__public || {}))
+  for (const key in finalHtmlExtra) {
     if (key === fileItem.originFile || new RegExp(key).test(fileItem.originFile)) {
-      return Object.assign({}, result, JSON.parse(JSON.stringify(htmlExtra[key])))
+      return Object.assign({}, result, JSON.parse(JSON.stringify(finalHtmlExtra[key])))
     }
   }
   return result

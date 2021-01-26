@@ -99,10 +99,12 @@ export interface filterFilesV2OptionEntry {
 }
 
 export interface MultiHtmlOptionsV2 {
-  // 默认值: [
-  //    { globPattern: 'src/pages/**/*.js', entryRemovedPrefix: 'src/pages/' },
-  //    { globPattern: 'src/pages/**/*.ts', entryRemovedPrefix: 'src/pages/' }
-  // ]
+  /**
+   * 默认值: [
+   *    { globPattern: 'src/pages/**\/*.js', entryRemovedPrefix: 'src/pages/' },
+   *    { globPattern: 'src/pages/**\/*.ts', entryRemovedPrefix: 'src/pages/' }
+   * ]
+   */
   entries?: string | filterFilesV2OptionEntry | (string | filterFilesV2OptionEntry)[],
 
   /**
@@ -112,14 +114,20 @@ export interface MultiHtmlOptionsV2 {
    */
   baseTemplate?: string
 
+  /**
+   * 默认值: proccess.cwd()
+   */
   context?: string
 
+  /**
+   * 默认值: false
+   */
   debug?: string | boolean;
 
   /**
    * 额外的 html 配置项
    */
-  htmlExtra: {
+  htmlExtra?: {
     __public?: object
     [key: string]: object | undefined
   }
