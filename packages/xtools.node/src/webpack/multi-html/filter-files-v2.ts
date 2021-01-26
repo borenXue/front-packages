@@ -65,7 +65,7 @@ export default function filterFilesV2 (
       entryKey: item.entryKey,
       originFile: item.origin,
       originFileAbsolute: item.originAbsolute,
-      htmlFilename: getHtmlFilename(item.entryKey),
+      htmlFilename: getHtmlFilename(item.entryKey.substring(0, item.entryKey.lastIndexOf('.'))),
       htmlTemplate: getHtmlTemplate(cwd, item.origin, baseTemplate),
     };
   }

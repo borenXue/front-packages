@@ -42,3 +42,33 @@ function webpackMultiHtmlV2(cfg: MultiHtmlOptionsV2) {
 
   return [entries, options]
 }
+
+
+
+
+
+
+// ts-node src/webpack/multi-html/index.ts
+
+// const [entries, options] = webpackMultiHtml({
+//   pagesDir: '__tests__/demo-dirs',
+//   suffix: ['js', 'ts'],
+//   additionalEntries: [],
+//   baseTemplate: 'public/index.html',
+//   htmlExtra: {}
+// });
+// console.log('options: ', options)
+
+
+
+// const [entriesV2, optionsV2] = webpackMultiHtmlV2({
+//   context: process.cwd(),
+//   entries: [
+//     { globPattern: '__tests__/demo-dirs/**/*.js', entryRemovedPrefix: '__tests__/demo-dirs/' },
+//     { globPattern: '__tests__/demo-dirs/**/*.ts', entryRemovedPrefix: '__tests__/demo-dirs/', globIgnore: '**/*.d.ts' },
+//   ],
+//   baseTemplate: 'public/index.html',
+//   debug: false,
+//   htmlExtra: {}
+// });
+// console.log('optionsV2: ', optionsV2)
