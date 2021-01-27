@@ -12,8 +12,8 @@ import { filterFilesV2OptionEntry, filterResult } from './types'
 // }, '', undefined, undefined, 'abc')
 
 function logger(prefix?: string | boolean, ...rest: any) {
-  const prefis = typeof prefix === 'string' ?prefix : 'xtools.node'
-  console.log(`[${prefix || 'xtools.node'}]: `, rest)
+  const prefis = typeof prefix === 'string' ? prefix : 'xtools.node'
+  console.log(`[${prefis || 'xtools.node'}]: `, ...rest)
 }
 
 export default function filterFilesV2 (
@@ -22,6 +22,7 @@ export default function filterFilesV2 (
   context?: string,
   debug: string | boolean = false,
 ): filterResult {
+  debug && logger(debug, 'filterFilesV2 参数: ', baseTemplate, context, debug, entries);
   /**
    * 1、获取 glob 过滤结果: globResultList
    */  

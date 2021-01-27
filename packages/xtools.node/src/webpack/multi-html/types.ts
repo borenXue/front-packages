@@ -102,7 +102,7 @@ export interface MultiHtmlOptionsV2 {
   /**
    * 默认值: [
    *    { globPattern: 'src/pages/**\/*.js', entryRemovedPrefix: 'src/pages/' },
-   *    { globPattern: 'src/pages/**\/*.ts', entryRemovedPrefix: 'src/pages/' }
+   *    { globPattern: 'src/pages/**\/*.ts', entryRemovedPrefix: 'src/pages/', globIgnore: '**\/*.d.ts' }
    * ]
    */
   entries?: string | filterFilesV2OptionEntry | (string | filterFilesV2OptionEntry)[],
