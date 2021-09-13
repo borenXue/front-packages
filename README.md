@@ -1,5 +1,9 @@
 ## 脚手架辅助工具
 
+
+>### 微易模块相关工具插件, 详见 `weiyi` 目录下的 `README.md`
+
+
 >### [vue-cli-plugin-multi](packages/vue-cli-plugin-multi)
 
 vue-cli 多页面插件
