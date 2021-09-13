@@ -1,28 +1,3 @@
-# 前端工具集合
-
-## xtools.vue
-
-* [X] 通用 filter: filterArray、filterTime、filterMoney、filterBoolean、filterArrayMulti
-* [ ] ajax 请求器
-* [ ] 管理后台 Layout 相关组件 (简单组件直接实现, 复杂组件前期可先基于ElementUI封闭)
-  - [ ] XsSidebarController
-  - [ ] XsLayout
-  - [ ] XsLineEllipsis
-  - [ ] 通用页面 - 登录页
-  - [ ] 通用页面 - 404
-  - [ ] 通用页面 - 403
-  - [ ] 通用页面 - 500
-  - [ ] 弹窗 - 401 重新登录
-  - [ ] 弹窗 - 修改密码
-  - [ ] 文件下载组件 - 内置 loading 状态
-
-
-<br/>
-
-
-
-
-
 ## 脚手架辅助工具
 
 >### [vue-cli-plugin-multi](packages/vue-cli-plugin-multi)
