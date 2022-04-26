@@ -14,4 +14,8 @@
 
 # 检查自上次发布以来哪些软件包被修改过
 ./node_modules/.bin/lerna changed
+
+# 发布前确保已经登录 npmjs
+npm whoami
+npm adduser --registry=https://registry.npmjs.org/
 ```

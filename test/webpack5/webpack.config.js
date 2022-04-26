@@ -1,6 +1,6 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
-const EnvWebpackPlugin = require('env-webpack-plugin')
+const EnvWebpackPlugin = require('xenv-webpack-plugin')
 
 const optimization = {
   minimize: true,

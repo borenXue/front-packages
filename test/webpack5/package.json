@@ -11,7 +11,7 @@
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1",
-    "env-webpack-plugin": "^0.0.1"
+    "xenv-webpack-plugin": "^0.0.1"
   },
   "dependencies": {
     "xtools.node": "0.0.11"

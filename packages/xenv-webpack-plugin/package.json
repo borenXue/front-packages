@@ -1,5 +1,5 @@
 {
-  "name": "env-webpack-plugin",
+  "name": "xenv-webpack-plugin",
   "version": "0.0.1",
   "description": "webpack plugin auto inject process.env.xxx and process and process.env",
   "keywords": [
@@ -10,7 +10,7 @@
     "process.env"
   ],
   "author": "boren.xue <boren.xue@rokid.com>",
-  "homepage": "https://github.com/borenXue/front-packages/tree/main/packages/env-webpack-plugin",
+  "homepage": "https://github.com/borenXue/front-packages/tree/main/packages/xenv-webpack-plugin",
   "license": "ISC",
   "main": "index.js",
   "publishConfig": {

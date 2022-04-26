@@ -1,4 +1,4 @@
-# `env-webpack-plugin`
+# `xenv-webpack-plugin`
 
 > 借助 webpack.DefinePlugin 自动注入 config/[X_ENV].js
 
@@ -35,7 +35,7 @@ module.exports = {
 };
 
 // webpack.config.js 文件配置:
-const EnvWebpackPlugin = require('env-webpack-plugin');
+const EnvWebpackPlugin = require('xenv-webpack-plugin');
 module.exports = {
   ...,
   plugins: [
@@ -54,14 +54,27 @@ console.log(process.env.X_ENV); // 字符串类型: 'test' 【不需要在 confi
 console.log(process.env.sso); // 对象类型: { login: 'https://login-test.yyy.cn' }
 ```
 
-## 配置
+## 配置项
 
-const EnvWebpackPlugin = require('env-webpack-plugin');
+构造参数 | 默认值 | 说明 |
+---  | --- | --- | --- |
+envKey | `X_ENV` | 使用的环境变量的名字。如果配置了该值, 则需要确保示例中第一步 `cross-env X_ENV=test` 中的 X_ENV 改为自定义的值  |
+defaultEnv | `development` | 如果环境变量 `envKey` 未设置, 使用的默认值 |
+dir | `config` | 配置文件存储的目录, 默认为 项目下的 config 文件夹 |
+
+
+```javascript
+const EnvWebpackPlugin = require('xenv-webpack-plugin');
 module.exports = {
   ...,
   plugins: [
-    new EnvWebpackPlugin(),
+    new EnvWebpackPlugin({
+      envKey: 'X_ENV',
+      defaultEnv: 'development',
+      dir: 'config',
+    }),
   ],
 };
+```
 
 

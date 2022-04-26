@@ -4,7 +4,6 @@ const fs = require('fs');
 const defaultConfig = {
   envKey: 'X_ENV',
   defaultEnv: 'development',
-  debugger: false,
   dir: 'config',
 };
 
