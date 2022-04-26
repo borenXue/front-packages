@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-multi",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "webpack, multi, multi-html, html",
   "keywords": [
     "webpack",
@@ -36,6 +36,6 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "xtools.node": "^0.0.11"
+    "xtools.node": "^0.0.12"
   }
 }

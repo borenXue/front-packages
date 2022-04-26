@@ -1,6 +1,6 @@
 {
-  "name": "multi-page-webpack-plugin",
-  "version": "0.0.1",
+  "name": "multi-pages-webpack-plugin",
+  "version": "0.0.2",
   "description": "multi html page plugin for webpack.",
   "keywords": [
     "multi",
@@ -12,7 +12,7 @@
     "plugin"
   ],
   "author": "boren.xue <boren.xue@outlook.com>",
-  "homepage": "https://github.com/borenXue/front-packages/tree/main/packages/multi-page-webpack-plugin",
+  "homepage": "https://github.com/borenXue/front-packages/tree/main/packages/multi-pages-webpack-plugin",
   "license": "ISC",
   "main": "index.js",
   "repository": {
@@ -26,6 +26,6 @@
     "url": "https://github.com/borenXue/front-packages/issues"
   },
   "dependencies": {
-    "xtools.node": "0.0.11"
+    "xtools.node": "^0.0.12"
   }
 }

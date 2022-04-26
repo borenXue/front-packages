@@ -12,9 +12,9 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1",
     "xenv-webpack-plugin": "^0.0.2",
-    "multi-page-webpack-plugin": "^0.0.1"
+    "multi-pages-webpack-plugin": "^0.0.2"
   },
   "dependencies": {
-    "xtools.node": "0.0.11"
+    "xtools.node": "^0.0.12"
   }
 }

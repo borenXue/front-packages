@@ -28,8 +28,6 @@ module.exports = class MultiPageWebpackPlugin {
       ...(cfg || {}),
       htmlPluginClass,
     };
-
-    // console.log('this.config: ', this.config)
   }
 
   getEntriesAndHtmlPlugins() {
@@ -60,8 +58,9 @@ module.exports = class MultiPageWebpackPlugin {
     //   }
     // });
 
-    // 植入 html 插件
 
+  
+    // 植入 html 插件
     compiler.options.plugins = compiler.options.plugins || [];
     plugins.forEach(it => {
       compiler.options.plugins.push(it);

@@ -1,6 +1,6 @@
 {
   "name": "xenv-webpack-plugin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "webpack plugin auto inject process.env.xxx and process and process.env",
   "keywords": [
     "env",
