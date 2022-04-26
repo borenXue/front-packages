@@ -1,7 +1,7 @@
 import path from 'path'
-import { Options } from 'html-webpack-plugin'
+import type { Options } from 'html-webpack-plugin'
 import { defaultOptions, execHtmlPluginParams } from './helper'
-import { Entry } from "webpack"
+import type { Entry } from "webpack"
 import { filterResult, filterResultItemValue } from './types'
 
 type entriesType = {

@@ -5,8 +5,10 @@ import filterFilesV2 from './filter-files-v2';
 import { defaultOptions, defaultOptionsV2, mergeOptions } from './helper'
 import { MultiHtmlOptions, MultiHtmlOptionsV2 } from './types'
 import process from 'process'
+import type { Entry } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-export function webpackMultiHtml(cfg: Partial<MultiHtmlOptions>) {
+export function webpackMultiHtml(cfg: Partial<MultiHtmlOptions>): [Entry, HtmlWebpackPlugin.Options[]] {
   const context = process.cwd()
   const config = mergeOptions(defaultOptions, cfg)
   const pagesDir = typeof config.pagesDir === 'string' ? [config.pagesDir] : config.pagesDir
@@ -25,13 +27,15 @@ export {
   getPluginsOptions,
   getVueCliPages,
   filterFiles,
+  defaultOptions as webpackMultiHtmlDefaultOptions,
 
   filterFilesV2,
   webpackMultiHtmlV2,
+  defaultOptionsV2,
 };
 
 
-function webpackMultiHtmlV2(cfg: MultiHtmlOptionsV2) {
+function webpackMultiHtmlV2(cfg: MultiHtmlOptionsV2): [Entry, HtmlWebpackPlugin.Options[]] {
   const context = process.cwd()
   const config = { ...defaultOptionsV2, ...cfg }
 

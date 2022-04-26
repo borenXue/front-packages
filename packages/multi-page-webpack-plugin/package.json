@@ -1,21 +1,20 @@
 {
-  "name": "xenv-webpack-plugin",
-  "version": "0.0.2",
-  "description": "webpack plugin auto inject process.env.xxx and process and process.env",
+  "name": "multi-page-webpack-plugin",
+  "version": "0.0.1",
+  "description": "multi html page plugin for webpack.",
   "keywords": [
-    "env",
-    "process",
+    "multi",
+    "pages",
+    "page",
+    "html",
+    "htmls",
     "webpack",
-    "plugin",
-    "process.env"
+    "plugin"
   ],
   "author": "boren.xue <boren.xue@outlook.com>",
-  "homepage": "https://github.com/borenXue/front-packages/tree/main/packages/xenv-webpack-plugin",
+  "homepage": "https://github.com/borenXue/front-packages/tree/main/packages/multi-page-webpack-plugin",
   "license": "ISC",
   "main": "index.js",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/borenXue/front-packages.git"
@@ -25,5 +24,8 @@
   },
   "bugs": {
     "url": "https://github.com/borenXue/front-packages/issues"
+  },
+  "dependencies": {
+    "xtools.node": "0.0.11"
   }
 }
