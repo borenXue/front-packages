@@ -1,0 +1,19 @@
+{
+  "name": "study-webpack",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve",
+    "build": "rm -rf dist && webpack"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "terser-webpack-plugin": "^5.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1",
+    "env-webpack-plugin": "^0.0.1"
+  },
+  "dependencies": {
+    "xtools.node": "0.0.11"
+  }
+}

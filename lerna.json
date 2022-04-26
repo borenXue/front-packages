@@ -1,7 +1,8 @@
 {
   "packages": [
     "packages/*",
-    "weiyi/*"
+    "weiyi/*",
+    "test/*"
   ],
   "version": "independent",
   "command": {

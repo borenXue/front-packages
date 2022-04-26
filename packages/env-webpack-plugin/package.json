@@ -1,0 +1,29 @@
+{
+  "name": "env-webpack-plugin",
+  "version": "0.0.1",
+  "description": "webpack plugin auto inject process.env.xxx and process and process.env",
+  "keywords": [
+    "env",
+    "process",
+    "webpack",
+    "plugin",
+    "process.env"
+  ],
+  "author": "boren.xue <boren.xue@rokid.com>",
+  "homepage": "https://github.com/borenXue/front-packages/tree/main/packages/env-webpack-plugin",
+  "license": "ISC",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borenXue/front-packages.git"
+  },
+  "scripts": {
+    "test": "echo \"no test case ~_~\""
+  },
+  "bugs": {
+    "url": "https://github.com/borenXue/front-packages/issues"
+  }
+}
