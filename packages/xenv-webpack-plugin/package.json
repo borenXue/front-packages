@@ -20,9 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/borenXue/front-packages.git"
   },
-  "scripts": {
-    "test": "echo \"no test case ~_~\""
-  },
+  "scripts": {},
   "bugs": {
     "url": "https://github.com/borenXue/front-packages/issues"
   }

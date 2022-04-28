@@ -17,7 +17,6 @@
     "url": "git+https://github.com/borenXue/front-packages.git"
   },
   "scripts": {
-    "build": "echo \"no build required ~_~\"",
     "test:local": "mocha tests --recursive > temp/log_test.txt",
     "test": "mocha tests --recursive",
     "lint": "eslint . --fix"

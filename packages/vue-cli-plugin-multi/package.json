@@ -28,8 +28,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"no test case ~_~\""
+    "build": "tsc"
   },
   "devDependencies": {
     "ts-node": "^8.6.2",

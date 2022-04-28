@@ -23,8 +23,7 @@
     "url": "git+https://github.com/borenXue/front-packages.git"
   },
   "scripts": {
-    "build": "rm -rf lib && rm -f generator.js && rm -f generator.d.ts && tsc && mv lib/generator* ./",
-    "test": "echo \"no test case ~_~\""
+    "build": "rm -rf lib && rm -f generator.js && rm -f generator.d.ts && tsc && mv lib/generator* ./"
   },
   "bugs": {
     "url": "https://github.com/borenXue/front-packages/issues"
