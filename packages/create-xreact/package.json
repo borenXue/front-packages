@@ -1,0 +1,27 @@
+{
+  "name": "create-xreact",
+  "version": "0.0.1",
+  "description": "npm initializer for react+webpack+ts+babel+eslint",
+  "keywords": [
+    "initializer",
+    "react",
+    "webpack",
+    "babel",
+    "eslint"
+  ],
+  "author": "boren.xue <boren.xue@outlook.com>",
+  "homepage": "https://github.com/borenXue/front-packages/tree/main/packages/create-xreact",
+  "license": "ISC",
+  "main": "./index.js",
+  "bin": {
+    "create-hello": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borenXue/front-packages.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/borenXue/front-packages/issues"
+  }
+}
