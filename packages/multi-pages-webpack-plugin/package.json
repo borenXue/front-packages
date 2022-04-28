@@ -1,6 +1,6 @@
 {
   "name": "multi-pages-webpack-plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "multi html page plugin for webpack.",
   "keywords": [
     "multi",

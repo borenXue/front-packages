@@ -1,6 +1,6 @@
 {
   "name": "create-xreact",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "npm initializer for react+webpack+ts+babel+eslint",
   "keywords": [
     "initializer",
