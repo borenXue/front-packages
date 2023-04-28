@@ -1,6 +1,6 @@
 {
   "name": "xtools.node",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "nodejs 工具箱",
   "author": "xueboren <boren.xue@outlook.com>",
   "homepage": "",
@@ -43,5 +43,8 @@
   "peerDependencies": {
     "html-webpack-plugin": "*",
     "webpack": "*"
+  },
+  "dependencies": {
+    "glob": "^7.1.6"
   }
 }
