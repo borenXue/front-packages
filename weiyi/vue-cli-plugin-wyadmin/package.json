@@ -16,11 +16,17 @@
     "helper.js",
     "prompts.js"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/borenXue/front-packages.git"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "echo \"test...\"",
+    "build": "echo \"build...\""
+  },
   "bugs": {
     "url": "https://github.com/borenXue/front-packages/issues"
   },

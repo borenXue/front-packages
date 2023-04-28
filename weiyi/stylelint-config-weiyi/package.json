@@ -13,7 +13,13 @@
     "type": "git",
     "url": "git+https://github.com/borenXue/front-packages.git"
   },
-  "scripts": {},
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "test": "echo \"test...\"",
+    "build": "echo \"build...\""
+  },
   "bugs": {
     "url": "https://github.com/borenXue/front-packages/issues"
   },
