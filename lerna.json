@@ -1,8 +1,6 @@
 {
   "packages": [
-    "packages/*",
-    "weiyi/*",
-    "test/*"
+    "packages/xtools.node"
   ],
   "version": "independent",
   "command": {

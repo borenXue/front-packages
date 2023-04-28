@@ -7,8 +7,8 @@
   "license": "ISC",
   "main": "src/index.js",
   "directories": {
-    "test": "echo \"test...\"",
-    "build": "echo \"build...\""
+    "test": "echo \"test...\" && exit 1",
+    "build": "echo \"build...\" && exit 1"
   },
   "files": [
     "src"

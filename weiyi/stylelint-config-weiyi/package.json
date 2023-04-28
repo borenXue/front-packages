@@ -17,15 +17,15 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "test": "echo \"test...\"",
-    "build": "echo \"build...\""
+    "test": "echo \"test...\" && exit 1",
+    "build": "echo \"build...\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/borenXue/front-packages/issues"
   },
   "dependencies": {
-    "@primer/css": "^15.1.0",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-primer": "^9.2.1"
+    "@primer/css": "15.1.0",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-primer": "9.2.1"
   }
 }

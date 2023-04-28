@@ -24,8 +24,8 @@
     "url": "git+https://github.com/borenXue/front-packages.git"
   },
   "scripts": {
-    "test": "echo \"test...\"",
-    "build": "echo \"build...\""
+    "test": "echo \"test...\" && exit 1",
+    "build": "echo \"build...\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/borenXue/front-packages/issues"
