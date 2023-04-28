@@ -16,6 +16,6 @@
 ./node_modules/.bin/lerna changed
 
 # 发布前确保已经登录 npmjs
-npm whoami
+npm whoami --registry=https://registry.npmjs.org/
 npm adduser --registry=https://registry.npmjs.org/
 ```
